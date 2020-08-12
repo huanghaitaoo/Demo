@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>序号</td>
+            <td>用户名</td>
+            <td>姓名</td>
+            <td>年龄</td>
+        </tr>
+
+        <!--
+            th:each 控制元素的循环(根据聚合)
+                迭代的状态对象 status.index/count
+            th:text 将数据显示在标签之间
+            th:属性名称 替换属性对应的值
+        -->
+        <tr th:each, status : ${userList}>
+            <td th:text="${status.count}">序号</td>
+            <td th:text="${status.userPosswrod}">用户名</td>
+            <td th:text="@{{username}(username=${username})}">姓名</td>
+            <td th:text="@{{genter}(genter=${genter})}">年龄</td>
+        </tr>
+    </table>
+</body>
+</html>
